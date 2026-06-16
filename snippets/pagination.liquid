@@ -1,0 +1,15 @@
+<nav class="pagination" role="navigation">
+  {% if paginate.previous %}
+    <a href="{{ paginate.previous.url }}" class="pagination__prev">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      Previous
+    </a>
+  {% endif %}
+  <span class="pagination__page">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+  {% if paginate.next %}
+    <a href="{{ paginate.next.url }}" class="pagination__next">
+      Next
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+  {% endif %}
+</nav>

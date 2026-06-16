@@ -1,0 +1,78 @@
+<section class="main-cart">
+  <div class="page-width">
+    <h1 class="main-cart__title">{{ 'cart.general.title' | t }}</h1>
+
+    {% if cart.item_count > 0 %}
+      <form action="{{ routes.cart_url }}" method="post" class="main-cart__form">
+        <div class="main-cart__grid">
+          <div class="main-cart__items">
+            {% for item in cart.items %}
+              <div class="main-cart__item">
+                <div class="main-cart__item-image">
+                  <a href="{{ item.url }}">
+                    {% if item.image %}
+                      <img src="{{ item.image | img_url: '200x200', crop: 'center' }}" alt="{{ item.product.title }}" loading="lazy">
+                    {% endif %}
+                  </a>
+                </div>
+                <div class="main-cart__item-details">
+                  <a href="{{ item.url }}" class="main-cart__item-name">{{ item.product.title }}</a>
+                  {% if item.variant.title != 'Default Title' %}
+                    <p class="main-cart__item-variant">{{ item.variant.title }}</p>
+                  {% endif %}
+                  <p class="main-cart__item-price">{{ item.price | money }}</p>
+                  <div class="main-cart__item-qty">
+                    <button class="main-cart__qty-btn" data-qty-down data-key="{{ item.key }}">-</button>
+                    <input type="number" value="{{ item.quantity }}" min="1" data-qty-input data-key="{{ item.key }}" name="updates[]">
+                    <button class="main-cart__qty-btn" data-qty-up data-key="{{ item.key }}">+</button>
+                  </div>
+                  <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="main-cart__remove">Remove</a>
+                </div>
+                <div class="main-cart__item-total">{{ item.line_price | money }}</div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="main-cart__summary">
+            <h2>Order Summary</h2>
+            <div class="main-cart__summary-row">
+              <span>Subtotal</span>
+              <span>{{ cart.total_price | money }}</span>
+            </div>
+            {% if cart.total_discount > 0 %}
+              <div class="main-cart__summary-row main-cart__summary-row--discount">
+                <span>Discount</span>
+                <span>-{{ cart.total_discount | money }}</span>
+              </div>
+            {% endif %}
+            <div class="main-cart__summary-row main-cart__summary-row--total">
+              <span>Total</span>
+              <span>{{ cart.total_price | money }}</span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--large btn--full" name="checkout">
+              Checkout
+            </button>
+            <a href="{{ routes.root_url }}" class="btn btn--outline btn--full">Continue Shopping</a>
+          </div>
+        </div>
+      </form>
+    {% else %}
+      <div class="main-cart__empty">
+        <p>Your cart is empty.</p>
+        <a href="{{ routes.root_url }}" class="btn btn--primary">Continue Shopping</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main cart",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Main cart"
+    }
+  ]
+}
+{% endschema %}

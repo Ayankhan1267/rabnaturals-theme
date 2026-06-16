@@ -1,0 +1,104 @@
+<section class="main-product">
+  <div class="page-width">
+    <div class="main-product__grid">
+      <div class="main-product__gallery">
+        {% if product.featured_image != blank %}
+          <div class="main-product__main-image">
+            <img src="{{ product.featured_image | img_url: '800x' }}" alt="{{ product.title }}" id="ProductMainImage">
+          </div>
+        {% endif %}
+        {% if product.images.size > 1 %}
+          <div class="main-product__thumbs">
+            {% for image in product.images %}
+              <button class="main-product__thumb{% if forloop.first %} active{% endif %}" data-image="{{ image | img_url: '800x' }}">
+                <img src="{{ image | img_url: '150x150', crop: 'center' }}" alt="{{ product.title }}" loading="lazy">
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="main-product__info">
+        <nav class="main-product__breadcrumb" role="navigation" aria-label="Breadcrumb">
+          <a href="{{ routes.root_url }}">Home</a>
+          {% if collection %}
+            <span>/</span>
+            <a href="{{ collection.url }}">{{ collection.title }}</a>
+          {% endif %}
+          <span>/</span>
+          <span>{{ product.title }}</span>
+        </nav>
+
+        <h1 class="main-product__title">{{ product.title }}</h1>
+
+        {% if product.vendor != blank %}
+          <p class="main-product__vendor">{{ product.vendor }}</p>
+        {% endif %}
+
+        <div class="main-product__price" data-price-wrapper>
+          <span class="main-product__price--current" data-product-price>
+            {{ product.price | money }}
+          </span>
+          {% if product.compare_at_price_max > product.price %}
+            <span class="main-product__price--original" data-compare-price>
+              {{ product.compare_at_price_max | money }}
+            </span>
+          {% endif %}
+        </div>
+
+        {% unless product.has_only_default_variant %}
+          <div class="main-product__variants">
+            {% for option in product.options_with_values %}
+              <div class="main-product__option">
+                <label class="main-product__option-label">{{ option.name }}</label>
+                <div class="main-product__option-values">
+                  {% for value in option.values %}
+                    <button class="main-product__option-btn{% if option.selected_value == value %} active{% endif %}"
+                      data-option-index="{{ forloop.parentloop.index0 }}"
+                      data-value="{{ value }}">
+                      {{ value }}
+                    </button>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endunless %}
+
+        <div class="main-product__quantity">
+          <label>Quantity</label>
+          <div class="main-product__qty-selector">
+            <button data-qty-down aria-label="Decrease">-</button>
+            <input type="number" value="1" min="1" data-qty-input>
+            <button data-qty-up aria-label="Increase">+</button>
+          </div>
+        </div>
+
+        <button class="btn btn--primary btn--large btn--full main-product__atc"
+          data-add-to-cart="{{ product.variants.first.id }}"
+          {% if product.available == false %}disabled{% endif %}>
+          {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+        </button>
+
+        {% if product.description != blank %}
+          <div class="main-product__description">
+            <h3>Description</h3>
+            {{ product.description }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Main product"
+    }
+  ]
+}
+{% endschema %}

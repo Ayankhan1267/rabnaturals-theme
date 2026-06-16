@@ -1,0 +1,32 @@
+<div class="product-card">
+  <a href="{{ product.url }}" class="product-card__link">
+    <div class="product-card__image-wrap">
+      {% if product.featured_image != blank %}
+        <img src="{{ product.featured_image | img_url: '400x400', crop: 'center' }}" alt="{{ product.title }}" loading="lazy" class="product-card__image">
+      {% else %}
+        <div class="product-card__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
+      {% endif %}
+      {% if product.compare_at_price > product.price %}
+        <span class="product-card__badge product-card__badge--sale">Sale</span>
+      {% endif %}
+      {% if product.tags contains 'new-arrival' %}
+        <span class="product-card__badge product-card__badge--new">New</span>
+      {% endif %}
+    </div>
+    <div class="product-card__info">
+      <h3 class="product-card__title">{{ product.title }}</h3>
+      {% if product.vendor != blank %}
+        <span class="product-card__vendor">{{ product.vendor }}</span>
+      {% endif %}
+      <div class="product-card__price">
+        {% if product.compare_at_price > product.price %}
+          <span class="product-card__price--original">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+        <span class="product-card__price--current">{{ product.price | money }}</span>
+      </div>
+    </div>
+  </a>
+  <button class="product-card__atc btn btn--primary btn--full" data-add-to-cart="{{ product.variants.first.id }}">
+    Add to Cart
+  </button>
+</div>

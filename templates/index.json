@@ -1,0 +1,90 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-section",
+      "settings": {
+      }
+    },
+    "trust-bar": {
+      "type": "trust-bar",
+      "settings": {
+      }
+    },
+    "categories": {
+      "type": "categories",
+      "settings": {
+      }
+    },
+    "poster": {
+      "type": "poster-carousel",
+      "settings": {
+      }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+      }
+    },
+    "ai-benefits": {
+      "type": "ai-benefits",
+      "settings": {
+      }
+    },
+    "skin-tracker": {
+      "type": "skin-tracker-banner",
+      "settings": {
+      }
+    },
+    "shop-by-concern": {
+      "type": "shop-by-concern",
+      "settings": {
+      }
+    },
+    "bestsellers": {
+      "type": "bestsellers",
+      "settings": {
+      }
+    },
+    "new-arrivals": {
+      "type": "new-arrivals",
+      "settings": {
+      }
+    },
+    "ingredient-showcase": {
+      "type": "ingredient-showcase",
+      "settings": {
+      }
+    },
+    "video-section": {
+      "type": "video-section",
+      "settings": {
+      }
+    },
+    "combos": {
+      "type": "combos",
+      "settings": {
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust-bar",
+    "categories",
+    "poster",
+    "featured-products",
+    "ai-benefits",
+    "skin-tracker",
+    "shop-by-concern",
+    "bestsellers",
+    "new-arrivals",
+    "ingredient-showcase",
+    "video-section",
+    "combos",
+    "testimonials"
+  ]
+}

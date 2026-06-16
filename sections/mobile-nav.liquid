@@ -1,0 +1,71 @@
+<nav class="mobile-nav" data-mobile-nav>
+  <div class="mobile-nav__overlay" data-mobile-close></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__header">
+      {% if settings.logo != blank %}
+        <img src="{{ settings.logo | img_url: 'master' }}" alt="{{ shop.name }}" width="80" loading="lazy">
+      {% else %}
+        <span class="mobile-nav__title">{{ shop.name }}</span>
+      {% endif %}
+      <button class="mobile-nav__close" aria-label="Close menu" data-mobile-close>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav__list">
+      {% for link in linklists.main-menu.links %}
+        <li class="mobile-nav__item">
+          <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+          {% if link.links != blank %}
+            <button class="mobile-nav__toggle" aria-label="Toggle submenu" data-sub-toggle>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+            <ul class="mobile-nav__sublist">
+              {% for child in link.links %}
+                <li><a href="{{ child.url }}" class="mobile-nav__sublink">{{ child.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="mobile-nav__footer">
+      <a href="/pages/skin-analysis" class="mobile-nav__cta">Know Your Skin</a>
+      {% if shop.customer_accounts_enabled %}
+        <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="mobile-nav__account">Account</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<nav class="bottom-nav">
+  <a href="{{ routes.root_url }}" class="bottom-nav__item{% if template.name == 'index' %} active{% endif %}">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <span>Home</span>
+  </a>
+  <a href="/collections/all" class="bottom-nav__item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
+    <span>Shop</span>
+  </a>
+  <a href="/pages/skin-analysis" class="bottom-nav__item bottom-nav__item--cta">
+    <span class="bottom-nav__cta-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a10 10 0 0110 10c0 5-5 9-10 12C7 21 2 17 2 12A10 10 0 0112 2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+    </span>
+    <span>Know Your Skin</span>
+  </a>
+  <a href="/account" class="bottom-nav__item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+    <span>Profile</span>
+  </a>
+</nav>
+
+{% schema %}
+{
+  "name": "Mobile nav",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Mobile nav"
+    }
+  ]
+}
+{% endschema %}

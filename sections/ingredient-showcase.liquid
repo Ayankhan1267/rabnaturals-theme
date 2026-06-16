@@ -1,0 +1,163 @@
+<section class="ingredient-showcase">
+  <div class="ingredient-showcase__hero">
+    <div class="page-width">
+      <div class="ingredient-showcase__hero-content">
+        <h2 class="ingredient-showcase__title">{{ section.settings.heading | default: "The Secret Behind Glowing Skin Has Always Been in Your Kitchen" }}</h2>
+        <p class="ingredient-showcase__subtitle">{{ section.settings.subtitle | default: "Generations of Indian women swore by dals, pulses, and grains for radiant skin." }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingredient-showcase__marquee">
+    <div class="ingredient-showcase__marquee-inner">
+      <span>Masoor Dal</span><span>Moong Dal</span><span>Chana Dal</span><span>Urad Dal</span>
+      <span>Rice</span><span>Oats</span><span>Barley</span><span>Wheat</span>
+      <span>Masoor Dal</span><span>Moong Dal</span><span>Chana Dal</span><span>Urad Dal</span>
+      <span>Rice</span><span>Oats</span><span>Barley</span><span>Wheat</span>
+    </div>
+  </div>
+
+  <div class="page-width">
+    <div class="ingredient-showcase__grid">
+      {% for block in section.blocks %}
+        <div class="ingredient-showcase__card" {{ block.shopify_attributes }}>
+          <div class="ingredient-showcase__card-header" style="background: {{ block.settings.gradient | default: 'linear-gradient(135deg, #0197a6, #017d89)' }}">
+            <h3 class="ingredient-showcase__card-name">{{ block.settings.name }}</h3>
+            <span class="ingredient-showcase__card-lang">{{ block.settings.hindi_name }}</span>
+          </div>
+          <div class="ingredient-showcase__card-body">
+            <span class="ingredient-showcase__card-benefit">{{ block.settings.benefit }}</span>
+            <p class="ingredient-showcase__card-desc">{{ block.settings.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="ingredient-showcase__science">
+    <div class="page-width">
+      <h3 class="ingredient-showcase__science-title">{{ section.settings.science_heading | default: "Why Ancient Grains Work" }}</h3>
+      <div class="ingredient-showcase__science-grid">
+        <div class="ingredient-showcase__science-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="{{ settings.color_primary }}" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          <h4>Science-Backed</h4>
+          <p>Clinically inspired formulations with proven ingredients</p>
+        </div>
+        <div class="ingredient-showcase__science-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="{{ settings.color_primary }}" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <h4>100% Natural</h4>
+          <p>Zero harsh chemicals, parabens, or sulfates</p>
+        </div>
+        <div class="ingredient-showcase__science-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="{{ settings.color_primary }}" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <h4>Made for Indian Skin</h4>
+          <p>Designed for Indian skin types and climate</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingredient-showcase__cta">
+    <div class="page-width">
+      <div class="ingredient-showcase__cta-inner">
+        <h3>{{ section.settings.cta_heading | default: "Skincare Rooted in Tradition. Proven by Results." }}</h3>
+        <div class="ingredient-showcase__cta-actions">
+          <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn btn--primary btn--large">Shop Now</a>
+          <a href="{{ section.settings.cta_secondary_link | default: '/pages/skin-analysis' }}" class="btn btn--outline btn--white">Know Your Skin</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredient showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Secret Behind Glowing Skin Has Always Been in Your Kitchen"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Generations of Indian women swore by dals, pulses, and grains for radiant skin."
+    },
+    {
+      "type": "text",
+      "id": "science_heading",
+      "label": "Science section heading",
+      "default": "Why Ancient Grains Work"
+    },
+    {
+      "type": "text",
+      "id": "cta_heading",
+      "label": "CTA heading",
+      "default": "Skincare Rooted in Tradition. Proven by Results."
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_link",
+      "label": "Secondary CTA link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Masoor Dal"
+        },
+        {
+          "type": "text",
+          "id": "hindi_name",
+          "label": "Hindi name",
+          "default": "मसूर दाल"
+        },
+        {
+          "type": "text",
+          "id": "benefit",
+          "label": "Benefit tag",
+          "default": "Brightening"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Rich in antioxidants and vitamin B..."
+        },
+        {
+          "type": "color_background",
+          "id": "gradient",
+          "label": "Card gradient"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Ingredient showcase",
+      "category": "Home",
+      "blocks": [
+        { "type": "ingredient", "settings": { "name": "Masoor Dal", "hindi_name": "मसूर दाल", "benefit": "Brightening" } },
+        { "type": "ingredient", "settings": { "name": "Moong Dal", "hindi_name": "मूंग दाल", "benefit": "Detoxifying" } },
+        { "type": "ingredient", "settings": { "name": "Chana Dal", "hindi_name": "चना दाल", "benefit": "Exfoliating" } },
+        { "type": "ingredient", "settings": { "name": "Rice", "hindi_name": "चावल", "benefit": "Soothing" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

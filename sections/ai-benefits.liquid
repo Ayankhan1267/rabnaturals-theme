@@ -1,0 +1,116 @@
+<section class="ai-benefits">
+  <div class="page-width">
+    <h2 class="section-title section-title--center">{{ section.settings.heading | default: "India's Most Advanced Skin Science" }}</h2>
+    <p class="section-desc">{{ section.settings.description | default: "Stop guessing. Find the right routine for your unique skin." }}</p>
+    <div class="ai-benefits__grid">
+      <div class="ai-benefits__card">
+        <div class="ai-benefits__icon" style="background: linear-gradient(135deg, #0197a6, #017d89);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a10 10 0 0110 10c0 5-5 9-10 12C7 21 2 17 2 12A10 10 0 0112 2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        </div>
+        <span class="ai-benefits__tag">AI Powered</span>
+        <h3 class="ai-benefits__title">AI Skin Analysis</h3>
+        <p class="ai-benefits__desc">Free 2-minute analysis. Know your real skin type across 32 parameters.</p>
+        <ul class="ai-benefits__list">
+          <li>No guesswork</li>
+          <li>No expensive tests</li>
+          <li>Instant results</li>
+        </ul>
+        <a href="{{ section.settings.analysis_link | default: '/pages/skin-analysis' }}" class="btn btn--primary">Take the Quiz</a>
+      </div>
+      <div class="ai-benefits__card">
+        <div class="ai-benefits__icon" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        </div>
+        <span class="ai-benefits__tag">Deep Profile</span>
+        <h3 class="ai-benefits__title">Deep Skin Profile</h3>
+        <p class="ai-benefits__desc">32 detailed parameters build your unique skin identity.</p>
+        <ul class="ai-benefits__list">
+          <li>Track changes over time</li>
+          <li>Personalized recommendations</li>
+          <li>Science-backed insights</li>
+        </ul>
+        <a href="{{ section.settings.analysis_link | default: '/pages/skin-analysis' }}" class="btn btn--primary">Know Your Skin</a>
+      </div>
+      <div class="ai-benefits__card">
+        <div class="ai-benefits__icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87"></path><path d="M16 3.13a4 4 0 010 7.75"></path></svg>
+        </div>
+        <span class="ai-benefits__tag">Expert Guidance</span>
+        <h3 class="ai-benefits__title">Specialist Consultation</h3>
+        <p class="ai-benefits__desc">Connect with certified skin specialists for a personalized routine.</p>
+        <ul class="ai-benefits__list">
+          <li>Certified experts</li>
+          <li>Personalized routine</li>
+          <li>Ongoing support</li>
+        </ul>
+        <a href="{{ section.settings.consultation_link | default: '/pages/consultation' }}" class="btn btn--primary">Book Now</a>
+      </div>
+    </div>
+    <div class="ai-benefits__steps">
+      <div class="ai-benefits__step">
+        <span class="ai-benefits__step-num">01</span>
+        <span class="ai-benefits__step-text">Take Quiz</span>
+      </div>
+      <div class="ai-benefits__step-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ settings.color_primary }}" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </div>
+      <div class="ai-benefits__step">
+        <span class="ai-benefits__step-num">02</span>
+        <span class="ai-benefits__step-text">Get Profile</span>
+      </div>
+      <div class="ai-benefits__step-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ settings.color_primary }}" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </div>
+      <div class="ai-benefits__step">
+        <span class="ai-benefits__step-num">03</span>
+        <span class="ai-benefits__step-text">Receive Routine</span>
+      </div>
+      <div class="ai-benefits__step-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ settings.color_primary }}" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </div>
+      <div class="ai-benefits__step">
+        <span class="ai-benefits__step-num">04</span>
+        <span class="ai-benefits__step-text">Meet Expert</span>
+      </div>
+    </div>
+    <div class="ai-benefits__cta">
+      <a href="{{ section.settings.analysis_link | default: '/pages/skin-analysis' }}" class="btn btn--primary btn--large">Get My Free Skin Analysis</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "AI Benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "India's Most Advanced Skin Science"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Stop guessing. Our AI finds the right routine for your unique skin."
+    },
+    {
+      "type": "url",
+      "id": "analysis_link",
+      "label": "Analysis page link"
+    },
+    {
+      "type": "url",
+      "id": "consultation_link",
+      "label": "Consultation page link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AI Benefits",
+      "category": "Home"
+    }
+  ]
+}
+{% endschema %}

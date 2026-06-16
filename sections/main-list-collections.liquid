@@ -1,0 +1,36 @@
+<section class="main-list-collections">
+  <div class="page-width">
+    <h1 class="main-list-collections__title">{{ 'collections.general.title' | t }}</h1>
+    <div class="main-list-collections__grid">
+      {% for collection in collections %}
+        {% unless collection.handle == 'frontpage' or collection.handle == 'all' %}
+          <a href="{{ collection.url }}" class="main-list-collections__card">
+            {% if collection.image %}
+              <div class="main-list-collections__image">
+                <img src="{{ collection.image | img_url: '400x400', crop: 'center' }}" alt="{{ collection.title }}" loading="lazy">
+              </div>
+            {% else %}
+              <div class="main-list-collections__image main-list-collections__image--placeholder">
+                {{ 'collection-' | append: forloop.index | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+            <h2 class="main-list-collections__card-title">{{ collection.title }}</h2>
+            <span class="main-list-collections__count">{{ collection.products_count }} products</span>
+          </a>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main list collections",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Main list collections"
+    }
+  ]
+}
+{% endschema %}

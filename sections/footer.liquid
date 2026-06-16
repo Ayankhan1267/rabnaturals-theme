@@ -1,0 +1,151 @@
+<footer class="footer">
+  <div class="footer__newsletter">
+    <div class="page-width">
+      <div class="footer__newsletter-inner">
+        <h3 class="footer__newsletter-title">Subscribe to our newsletter</h3>
+        {% form 'customer' %}
+          {% if form.posted_successfully? %}
+            <div class="footer__newsletter-success">Thanks for subscribing!</div>
+          {% else %}
+            <div class="footer__newsletter-form">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="email" name="contact[email]" placeholder="Enter your email" required class="footer__newsletter-input">
+              <button type="submit" class="footer__newsletter-btn">Subscribe</button>
+            </div>
+            {% if form.errors %}
+              <div class="footer__newsletter-error">{{ form.errors.translated_fields['email'] }} - {{ form.errors.messages['email'] }}</div>
+            {% endif %}
+          {% endif %}
+        {% endform %}
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__main">
+    <div class="page-width">
+      <div class="footer__grid">
+        <div class="footer__column footer__column--brand">
+          {% if settings.logo != blank %}
+            <img src="{{ settings.logo | img_url: 'master' }}" alt="{{ shop.name }}" class="footer__logo" style="filter: brightness(0) invert(1);" width="120" loading="lazy">
+          {% else %}
+            <h3 class="footer__brand-name">{{ shop.name }}</h3>
+          {% endif %}
+          <p class="footer__brand-desc">Skincare Rooted in Indian Tradition. Harnessing ancient grains for glowing skin.</p>
+          <div class="footer__social">
+            {% if settings.social_instagram != blank %}
+              <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" aria-label="Instagram" class="footer__social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="2"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" fill="none" stroke="currentColor" stroke-width="2"></line></svg>
+              </a>
+            {% endif %}
+            {% if settings.social_facebook != blank %}
+              <a href="{{ settings.social_facebook }}" target="_blank" rel="noopener" aria-label="Facebook" class="footer__social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+              </a>
+            {% endif %}
+            {% if settings.social_youtube != blank %}
+              <a href="{{ settings.social_youtube }}" target="_blank" rel="noopener" aria-label="YouTube" class="footer__social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29.17 29.17 0 001 11.75a29.17 29.17 0 00.46 5.33 2.78 2.78 0 001.94 2C5.12 19.5 12 19.5 12 19.5s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29.17 29.17 0 00.46-5.33 29.17 29.17 0 00-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon></svg>
+              </a>
+            {% endif %}
+            {% if settings.social_twitter != blank %}
+              <a href="{{ settings.social_twitter }}" target="_blank" rel="noopener" aria-label="Twitter" class="footer__social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="{{ routes.root_url }}">Home</a></li>
+            <li><a href="/collections/all">Products</a></li>
+            <li><a href="/pages/skin-analysis">Skin Analysis</a></li>
+            <li><a href="/pages/consultation">Book Consultation</a></li>
+            <li><a href="/blogs/blog">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Join Us</h4>
+          <ul class="footer__links">
+            <li><a href="/pages/join-as-specialist">Join as Specialist</a></li>
+            <li><a href="/pages/partner">Partner Program</a></li>
+            <li><a href="/pages/influencer">Influencer Program</a></li>
+            <li><a href="/pages/work-with-us">Work With Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Support</h4>
+          <ul class="footer__links">
+            <li><a href="/pages/about">About Us</a></li>
+            <li><a href="/pages/privacy">Privacy Policy</a></li>
+            <li><a href="/pages/terms">Terms & Conditions</a></li>
+            <li><a href="/pages/shipping-policy">Shipping Policy</a></li>
+            <li><a href="/pages/refund-policy">Refund Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Contact Us</h4>
+          <ul class="footer__links footer__links--contact">
+            {% if settings.footer_email != blank %}
+              <li>
+                <a href="mailto:{{ settings.footer_email }}">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  {{ settings.footer_email }}
+                </a>
+              </li>
+            {% endif %}
+            {% if settings.footer_phone != blank %}
+              <li>
+                <a href="tel:{{ settings.footer_phone }}">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+                  {{ settings.footer_phone }}
+                </a>
+              </li>
+            {% endif %}
+            {% if settings.footer_address != blank %}
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                {{ settings.footer_address }}
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__trust">
+    <div class="page-width">
+      <div class="footer__trust-strip">
+        <span class="footer__trust-item">100% Natural</span>
+        <span class="footer__trust-item">Dermatologist Tested</span>
+        <span class="footer__trust-item">50,000+ Customers</span>
+        <span class="footer__trust-item">Free Shipping</span>
+        <span class="footer__trust-item">Easy Returns</span>
+        <span class="footer__trust-item">Made in India</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="page-width">
+      <p class="footer__copyright">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

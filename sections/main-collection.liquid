@@ -1,0 +1,58 @@
+<section class="main-collection">
+  <div class="page-width">
+    <div class="main-collection__header">
+      <h1 class="main-collection__title">{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <div class="main-collection__desc">{{ collection.description }}</div>
+      {% endif %}
+    </div>
+
+    {% if collection.products.size > 0 %}
+      <div class="main-collection__controls">
+        <div class="main-collection__count">{{ collection.products_count }} products</div>
+        <div class="main-collection__sort">
+          <label for="sort-by">Sort by</label>
+          <select id="sort-by" data-sort>
+            <option value="manual">Featured</option>
+            <option value="price-ascending">Price: Low to High</option>
+            <option value="price-descending">Price: High to Low</option>
+            <option value="title-ascending">A-Z</option>
+            <option value="title-descending">Z-A</option>
+            <option value="created-ascending">Oldest</option>
+            <option value="created-descending">Newest</option>
+            <option value="best-selling">Best Selling</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="main-collection__grid">
+        {% for product in collection.products %}
+          {% render 'product-card' product: product %}
+        {% endfor %}
+      </div>
+
+      {% if paginate.pages > 1 %}
+        <div class="main-collection__pagination">
+          {% render 'pagination', paginate: paginate %}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="main-collection__empty">
+        <p>No products found in this collection.</p>
+        <a href="{{ routes.root_url }}" class="btn btn--primary">Continue Shopping</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main collection",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Main collection"
+    }
+  ]
+}
+{% endschema %}

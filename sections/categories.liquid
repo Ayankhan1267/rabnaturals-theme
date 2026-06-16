@@ -1,0 +1,70 @@
+<section class="categories">
+  <div class="page-width">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="categories__grid">
+      {% for block in section.blocks %}
+        <div class="categories__card" {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.link | default: '/collections/all' }}" class="categories__link">
+            {% if block.settings.image != blank %}
+              <div class="categories__image-wrap">
+                <img src="{{ block.settings.image | img_url: '200x200', crop: 'center' }}" alt="{{ block.settings.title }}" loading="lazy" class="categories__image">
+              </div>
+            {% else %}
+              {% assign cat_icons = "🧴|💧|🧊|☀️|🌺|🧪|🌿|🫧" | split: "|" %}
+              {% assign cidx = forloop.index0 | modulo: 8 %}
+              <div class="categories__image-wrap categories__image-wrap--placeholder">
+                <span class="categories__emoji">{{ cat_icons[cidx] }}</span>
+              </div>
+            {% endif %}
+            <span class="categories__title">{{ block.settings.title }}</span>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Categories",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cleanser"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Categories",
+      "category": "Home",
+      "blocks": [
+        { "type": "category", "settings": { "title": "Cleanser" } },
+        { "type": "category", "settings": { "title": "Serum" } },
+        { "type": "category", "settings": { "title": "Moisturizer" } },
+        { "type": "category", "settings": { "title": "Sunscreen" } },
+        { "type": "category", "settings": { "title": "Toner" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

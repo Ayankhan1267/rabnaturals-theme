@@ -1,0 +1,236 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Rabt Naturals",
+    "theme_version": "1.0.0",
+    "theme_author": "Rabt Naturals",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "type": "header",
+    "content": "Colors"
+  },
+  {
+    "type": "color",
+    "id": "color_primary",
+    "label": "Primary color",
+    "default": "#0197a6"
+  },
+  {
+    "type": "color",
+    "id": "color_primary_dark",
+    "label": "Primary Dark",
+    "default": "#017d89"
+  },
+  {
+    "type": "color",
+    "id": "color_secondary",
+    "label": "Secondary",
+    "default": "#f43f5e"
+  },
+  {
+    "type": "color",
+    "id": "color_dark_bg",
+    "label": "Dark Background",
+    "default": "#0b1120"
+  },
+  {
+    "type": "color",
+    "id": "color_footer_bg",
+    "label": "Footer Background",
+    "default": "#0b2b2b"
+  },
+  {
+    "type": "color_background",
+    "id": "background",
+    "label": "Background",
+    "default": "#ffffff"
+  },
+  {
+    "type": "color",
+    "id": "color_text",
+    "label": "Text",
+    "default": "#111111"
+  },
+  {
+    "type": "color",
+    "id": "color_text_secondary",
+    "label": "Text Secondary",
+    "default": "#9ca3af"
+  },
+  {
+    "type": "header",
+    "content": "Typography"
+  },
+  {
+    "type": "font_picker",
+    "id": "heading_font",
+    "label": "Heading font",
+    "default": "work_sans_n6"
+  },
+  {
+    "type": "font_picker",
+    "id": "body_font",
+    "label": "Body font",
+    "default": "work_sans_n4"
+  },
+  {
+    "type": "header",
+    "content": "Announcement Bar"
+  },
+  {
+    "type": "checkbox",
+    "id": "show_announcement",
+    "label": "Show announcement bar",
+    "default": true
+  },
+  {
+    "type": "text",
+    "id": "announcement_text_1",
+    "label": "Announcement text 1",
+    "default": "FREE GIFT on prepaid orders above \u20b9499"
+  },
+  {
+    "type": "text",
+    "id": "announcement_text_2",
+    "label": "Announcement text 2",
+    "default": "Free Shipping on orders above \u20b9499"
+  },
+  {
+    "type": "text",
+    "id": "announcement_text_3",
+    "label": "Announcement text 3",
+    "default": "100% Natural Ingredients"
+  },
+  {
+    "type": "text",
+    "id": "announcement_text_4",
+    "label": "Announcement text 4",
+    "default": "50,000+ Happy Customers"
+  },
+  {
+    "type": "text",
+    "id": "announcement_text_5",
+    "label": "Announcement text 5",
+    "default": "Free AI Skin Analysis"
+  },
+  {
+    "type": "header",
+    "content": "Header"
+  },
+  {
+    "type": "image_picker",
+    "id": "logo",
+    "label": "Logo image"
+  },
+  {
+    "type": "range",
+    "id": "logo_width",
+    "label": "Logo width",
+    "min": 50,
+    "max": 250,
+    "step": 10,
+    "default": 120
+  },
+  {
+    "type": "header",
+    "content": "Footer"
+  },
+  {
+    "type": "text",
+    "id": "footer_email",
+    "label": "Email",
+    "default": "hello@rabtnaturals.com"
+  },
+  {
+    "type": "text",
+    "id": "footer_phone",
+    "label": "Phone",
+    "default": "+91 1234567890"
+  },
+  {
+    "type": "textarea",
+    "id": "footer_address",
+    "label": "Address",
+    "default": "India"
+  },
+  {
+    "type": "text",
+    "id": "footer_newsletter_title",
+    "label": "Newsletter Title",
+    "default": "Subscribe to our newsletter"
+  },
+  {
+    "type": "header",
+    "content": "Hero Section"
+  },
+  {
+    "type": "text",
+    "id": "hero_heading",
+    "label": "Heading",
+    "default": "Skincare Rooted in Indian Tradition"
+  },
+  {
+    "type": "textarea",
+    "id": "hero_description",
+    "label": "Description",
+    "default": "Harnessing the power of masoor, moong, chana, oats and traditional Indian grains"
+  },
+  {
+    "type": "text",
+    "id": "hero_cta_text",
+    "label": "CTA Button Text",
+    "default": "Shop Now"
+  },
+  {
+    "type": "url",
+    "id": "hero_cta_link",
+    "label": "CTA Button Link"
+  },
+  {
+    "type": "text",
+    "id": "hero_cta_secondary_text",
+    "label": "Secondary CTA Text",
+    "default": "Free AI Skin Analysis"
+  },
+  {
+    "type": "url",
+    "id": "hero_cta_secondary_link",
+    "label": "Secondary CTA Link"
+  },
+  {
+    "type": "header",
+    "content": "Social Media"
+  },
+  {
+    "type": "text",
+    "id": "social_instagram",
+    "label": "Instagram URL",
+    "default": "https://instagram.com/rabtnaturals"
+  },
+  {
+    "type": "text",
+    "id": "social_facebook",
+    "label": "Facebook URL",
+    "default": "https://facebook.com/rabtnaturals"
+  },
+  {
+    "type": "text",
+    "id": "social_youtube",
+    "label": "YouTube URL",
+    "default": "https://youtube.com/@rabtnaturals"
+  },
+  {
+    "type": "text",
+    "id": "social_twitter",
+    "label": "Twitter URL",
+    "default": "https://twitter.com/rabtnaturals"
+  },
+  {
+    "type": "text",
+    "id": "social_whatsapp",
+    "label": "WhatsApp Number",
+    "default": "919999999999"
+  }
+]

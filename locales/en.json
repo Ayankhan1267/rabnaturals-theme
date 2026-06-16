@@ -1,0 +1,14 @@
+{
+  "en": {
+    "cart": {
+      "general": {
+        "title": "Cart"
+      }
+    },
+    "collections": {
+      "general": {
+        "title": "Collections"
+      }
+    }
+  }
+}

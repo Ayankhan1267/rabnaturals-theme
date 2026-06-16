@@ -1,0 +1,13 @@
+{% layout none %}
+{% render 'header-template' %}
+
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+      }
+    }
+  },
+  "order": ["main"]
+}

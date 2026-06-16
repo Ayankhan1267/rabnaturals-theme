@@ -1,0 +1,79 @@
+<section class="featured-products">
+  <div class="page-width">
+    <div class="featured-products__header">
+      <h2 class="section-title">{{ section.settings.heading | default: "Most Loved Products" }}</h2>
+      <a href="{{ section.settings.view_all_link | default: '/collections/all' }}" class="featured-products__view-all">View All</a>
+    </div>
+    <div class="featured-products__grid" data-carousel>
+      {% for block in section.blocks %}
+        {% assign product = block.settings.product %}
+        {% if product != blank %}
+          <div class="product-card" {{ block.shopify_attributes }}>
+            <a href="{{ product.url }}" class="product-card__link">
+              <div class="product-card__image-wrap">
+                {% if product.featured_image != blank %}
+                  <img src="{{ product.featured_image | img_url: '400x400', crop: 'center' }}" alt="{{ product.title }}" loading="lazy" class="product-card__image">
+                {% else %}
+                  <div class="product-card__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
+                {% endif %}
+                {% if product.compare_at_price > product.price %}
+                  <span class="product-card__badge product-card__badge--sale">Sale</span>
+                {% endif %}
+              </div>
+              <div class="product-card__info">
+                <h3 class="product-card__title">{{ product.title }}</h3>
+                <div class="product-card__price">
+                  {% if product.compare_at_price > product.price %}
+                    <span class="product-card__price--original">{{ product.compare_at_price | money }}</span>
+                  {% endif %}
+                  <span class="product-card__price--current">{{ product.price | money }}</span>
+                </div>
+              </div>
+            </a>
+            <button class="product-card__atc btn btn--primary btn--full" data-add-to-cart="{{ product.variants.first.id }}">
+              Add to Cart
+            </button>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Most Loved Products"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured products",
+      "category": "Home"
+    }
+  ]
+}
+{% endschema %}

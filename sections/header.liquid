@@ -1,0 +1,84 @@
+<header class="header" data-header>
+  <div class="header__wrapper page-width">
+    <div class="header__left">
+      <button class="header__mobile-toggle" aria-label="Menu" data-mobile-toggle>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      {% if settings.logo != blank %}
+        <a href="{{ routes.root_url }}" class="header__logo">
+          <img src="{{ settings.logo | img_url: 'master' }}" alt="{{ shop.name }}" width="{{ settings.logo_width }}" loading="eager">
+        </a>
+      {% else %}
+        <a href="{{ routes.root_url }}" class="header__logo header__logo--text">{{ shop.name }}</a>
+      {% endif %}
+    </div>
+
+    <nav class="header__nav" data-header-nav>
+      <ul class="header__nav-list">
+        {% for link in linklists.main-menu.links %}
+          <li class="header__nav-item {% if link.links != blank %}header__nav-item--has-dropdown{% endif %}">
+            <a href="{{ link.url }}" class="header__nav-link">{{ link.title }}</a>
+            {% if link.links != blank %}
+              <div class="header__dropdown">
+                <ul class="header__dropdown-list">
+                  {% for child in link.links %}
+                    <li>
+                      <a href="{{ child.url }}" class="header__dropdown-link">{{ child.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="header__right">
+      <button class="header__icon header__search-btn" aria-label="Search" data-search-open>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <a href="/pages/skin-analysis" class="header__icon header__skin-btn header__icon--desktop">
+        <span>Know Your Skin</span>
+      </a>
+      <a href="/cart" class="header__icon header__cart-btn" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
+        <span class="header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+      {% if shop.customer_accounts_enabled %}
+        <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="header__icon header__account-btn header__icon--desktop" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="search-overlay" data-search-overlay>
+    <div class="search-overlay__content">
+      <div class="search-overlay__header">
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search-overlay__form">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" name="q" placeholder="Search products..." class="search-overlay__input" autocomplete="off" data-search-input>
+          <button type="button" class="search-overlay__close" data-search-close>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </form>
+      </div>
+      <div class="search-overlay__results" data-search-results>
+        <p class="search-overlay__placeholder">Search for products, categories...</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}
