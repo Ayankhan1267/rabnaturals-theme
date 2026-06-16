@@ -9,11 +9,11 @@
               <img src="{{ block.settings.thumbnail | img_url: '600x' }}" alt="{{ block.settings.title }}" loading="lazy">
             {% else %}
               <div class="video-section__placeholder">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.2)"/><polygon points="10 8 16 12 10 16" fill="white"/></svg>
+                {% render 'icon', name: 'play', size: 60 %}
               </div>
             {% endif %}
             <div class="video-section__play">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="10" fill="rgba(0,0,0,0.5)"/><polygon points="10 8 16 12 10 16" fill="white"/></svg>
+              {% render 'icon', name: 'play', size: 48 %}
             </div>
           </div>
           <div class="video-section__info">
@@ -32,7 +32,7 @@
     <div class="video-section__modal-overlay" data-video-close></div>
     <div class="video-section__modal-content">
       <button class="video-section__modal-close" data-video-close>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        {% render 'icon', name: 'close', size: 24 %}
       </button>
       <div class="video-section__modal-player" data-video-player>
       </div>

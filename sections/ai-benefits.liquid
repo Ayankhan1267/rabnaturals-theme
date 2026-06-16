@@ -5,7 +5,7 @@
     <div class="ai-benefits__grid">
       <div class="ai-benefits__card">
         <div class="ai-benefits__icon" style="background: linear-gradient(135deg, #0197a6, #017d89);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a10 10 0 0110 10c0 5-5 9-10 12C7 21 2 17 2 12A10 10 0 0112 2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          {% render 'icon', name: 'leaf', size: 24 %}
         </div>
         <span class="ai-benefits__tag">AI Powered</span>
         <h3 class="ai-benefits__title">AI Skin Analysis</h3>
@@ -19,7 +19,7 @@
       </div>
       <div class="ai-benefits__card">
         <div class="ai-benefits__icon" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          {% render 'icon', name: 'chart', size: 24 %}
         </div>
         <span class="ai-benefits__tag">Deep Profile</span>
         <h3 class="ai-benefits__title">Deep Skin Profile</h3>
@@ -33,7 +33,7 @@
       </div>
       <div class="ai-benefits__card">
         <div class="ai-benefits__icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87"></path><path d="M16 3.13a4 4 0 010 7.75"></path></svg>
+          {% render 'icon', name: 'users', size: 24 %}
         </div>
         <span class="ai-benefits__tag">Expert Guidance</span>
         <h3 class="ai-benefits__title">Specialist Consultation</h3>
@@ -51,23 +51,17 @@
         <span class="ai-benefits__step-num">01</span>
         <span class="ai-benefits__step-text">Take Quiz</span>
       </div>
-      <div class="ai-benefits__step-arrow">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ settings.color_primary }}" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </div>
+      {% render 'icon', name: 'arrow-right', size: 24 %}
       <div class="ai-benefits__step">
         <span class="ai-benefits__step-num">02</span>
         <span class="ai-benefits__step-text">Get Profile</span>
       </div>
-      <div class="ai-benefits__step-arrow">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ settings.color_primary }}" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </div>
+      {% render 'icon', name: 'arrow-right', size: 24 %}
       <div class="ai-benefits__step">
         <span class="ai-benefits__step-num">03</span>
         <span class="ai-benefits__step-text">Receive Routine</span>
       </div>
-      <div class="ai-benefits__step-arrow">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ settings.color_primary }}" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </div>
+      {% render 'icon', name: 'arrow-right', size: 24 %}
       <div class="ai-benefits__step">
         <span class="ai-benefits__step-num">04</span>
         <span class="ai-benefits__step-text">Meet Expert</span>

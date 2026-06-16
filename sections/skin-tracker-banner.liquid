@@ -13,14 +13,7 @@
           <span class="btn btn--white">{{ section.settings.cta | default: "Start Tracking" }}</span>
         </div>
         <div class="skin-tracker-banner__visual">
-          <svg width="200" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="40" width="20" height="30" rx="4" fill="rgba(255,255,255,0.3)"/>
-            <rect x="40" y="25" width="20" height="45" rx="4" fill="rgba(255,255,255,0.5)"/>
-            <rect x="70" y="35" width="20" height="35" rx="4" fill="white"/>
-            <rect x="100" y="15" width="20" height="55" rx="4" fill="rgba(255,255,255,0.7)"/>
-            <rect x="130" y="30" width="20" height="40" rx="4" fill="rgba(255,255,255,0.4)"/>
-            <rect x="160" y="20" width="20" height="50" rx="4" fill="rgba(255,255,255,0.6)"/>
-          </svg>
+          {% render 'icon', name: 'chart', size: 200 %}
         </div>
       </div>
     </a>

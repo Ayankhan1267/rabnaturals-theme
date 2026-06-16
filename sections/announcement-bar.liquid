@@ -1,7 +1,7 @@
 <div class="announcement-bar" role="region" aria-label="Announcement">
   <div class="announcement-bar__wrapper">
     <button class="announcement-bar__arrow announcement-bar__arrow--left" aria-label="Previous announcement">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      {% render 'icon', name: 'chevron-left', size: 16 %}
     </button>
     <div class="announcement-bar__slider" data-announcement-slider>
       {% if settings.announcement_text_1 != blank %}
@@ -21,10 +21,10 @@
       {% endif %}
     </div>
     <button class="announcement-bar__arrow announcement-bar__arrow--right" aria-label="Next announcement">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      {% render 'icon', name: 'chevron-right', size: 16 %}
     </button>
     <button class="announcement-bar__close" aria-label="Close announcement">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      {% render 'icon', name: 'close', size: 14 %}
     </button>
   </div>
   <div class="announcement-bar__dots">
