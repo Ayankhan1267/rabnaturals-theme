@@ -1,7 +1,8 @@
+{% if settings.show_announcement %}
 <div class="announcement-bar" role="region" aria-label="Announcement">
-  <div class="announcement-bar__wrapper">
+  <div class="announcement-bar__wrapper page-width">
     <button class="announcement-bar__arrow announcement-bar__arrow--left" aria-label="Previous announcement">
-      {% render 'icon', name: 'chevron-left', size: 16 %}
+      {% render 'icon', name: 'chevron-left', size: 14 %}
     </button>
     <div class="announcement-bar__slider" data-announcement-slider>
       {% if settings.announcement_text_1 != blank %}
@@ -21,30 +22,14 @@
       {% endif %}
     </div>
     <button class="announcement-bar__arrow announcement-bar__arrow--right" aria-label="Next announcement">
-      {% render 'icon', name: 'chevron-right', size: 16 %}
+      {% render 'icon', name: 'chevron-right', size: 14 %}
     </button>
     <button class="announcement-bar__close" aria-label="Close announcement">
-      {% render 'icon', name: 'close', size: 14 %}
+      {% render 'icon', name: 'close', size: 12 %}
     </button>
   </div>
-  <div class="announcement-bar__dots">
-    {% if settings.announcement_text_1 != blank %}
-      <span class="announcement-bar__dot active" data-index="0"></span>
-    {% endif %}
-    {% if settings.announcement_text_2 != blank %}
-      <span class="announcement-bar__dot" data-index="1"></span>
-    {% endif %}
-    {% if settings.announcement_text_3 != blank %}
-      <span class="announcement-bar__dot" data-index="2"></span>
-    {% endif %}
-    {% if settings.announcement_text_4 != blank %}
-      <span class="announcement-bar__dot" data-index="3"></span>
-    {% endif %}
-    {% if settings.announcement_text_5 != blank %}
-      <span class="announcement-bar__dot" data-index="4"></span>
-    {% endif %}
-  </div>
 </div>
+{% endif %}
 
 {% schema %}
 {
