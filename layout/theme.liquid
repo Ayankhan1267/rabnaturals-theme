@@ -29,6 +29,10 @@
 
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    window.addEventListener('scroll', function() {
+      var header = document.querySelector('[data-header]');
+      if (header) header.classList.toggle('scrolled', window.scrollY > 20);
+    });
   </script>
 
   {{ content_for_header }}
