@@ -2,73 +2,59 @@
   "sections": {
     "hero": {
       "type": "hero-section",
-      "settings": {
-      }
+      "settings": {}
     },
     "trust-bar": {
       "type": "trust-bar",
-      "settings": {
-      }
+      "settings": {}
     },
     "categories": {
       "type": "categories",
-      "settings": {
-      }
+      "settings": {}
     },
     "poster": {
       "type": "poster-carousel",
-      "settings": {
-      }
+      "settings": {}
     },
     "featured-products": {
       "type": "featured-products",
-      "settings": {
-      }
+      "settings": {}
     },
     "ai-benefits": {
       "type": "ai-benefits",
-      "settings": {
-      }
+      "settings": {}
     },
     "skin-tracker": {
       "type": "skin-tracker-banner",
-      "settings": {
-      }
+      "settings": {}
     },
     "shop-by-concern": {
       "type": "shop-by-concern",
-      "settings": {
-      }
+      "settings": {}
     },
     "bestsellers": {
       "type": "bestsellers",
-      "settings": {
-      }
+      "settings": {}
     },
     "new-arrivals": {
       "type": "new-arrivals",
-      "settings": {
-      }
+      "settings": {}
     },
     "ingredient-showcase": {
       "type": "ingredient-showcase",
-      "settings": {
-      }
+      "settings": {}
     },
     "video-section": {
       "type": "video-section",
-      "settings": {
-      }
+      "settings": {}
     },
     "combos": {
       "type": "combos",
-      "settings": {
-      }
+      "settings": {}
     },
     "testimonials": {
       "type": "testimonials",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [

@@ -1,12 +1,8 @@
-{% layout none %}
-{% render 'header-template' %}
-
 {
   "sections": {
     "main": {
       "type": "main-cart",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": ["main"]

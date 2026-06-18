@@ -42,7 +42,7 @@
     "default": "#0b2b2b"
   },
   {
-    "type": "color_background",
+    "type": "color",
     "id": "background",
     "label": "Background",
     "default": "#ffffff"
