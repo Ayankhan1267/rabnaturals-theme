@@ -37,6 +37,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 input, select, textarea { font: inherit; }
 
 /* Page width */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .page-width { max-width: var(--page-width); margin: 0 auto; padding: 0 20px; }
 .content-for-layout { min-height: 50vh; }
 
